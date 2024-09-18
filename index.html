@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Link List</title>
+    <title>Drives NEI</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -13,32 +13,98 @@
         }
         h1 {
             text-align: center;
+            color: #333;
+        }
+        .last-modification {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #666;
+        }
+        .search-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
         ul {
             list-style-type: none;
             padding: 0;
+            text-align: left; /* Align links to the left */
+            margin: 0 auto; /* Center the list on the page */
+            max-width: 600px; /* Limit the width of the list */
         }
         li {
             margin: 10px 0;
         }
+        img {
+            display: inline-block;
+            width: 50px; /* Adjust size as needed */
+            height: auto;
+            vertical-align: middle;
+            margin-right: 10px; /* Space between image and link text */
+        }
         a {
             text-decoration: none;
-            color: #007BFF;
-            font-size: 18px;
+            color: white;
+            background-color: #007BFF;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            display: inline-block; /* Needed for rectangle effect */
         }
         a:hover {
-            text-decoration: underline;
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
-    <h1>List of Links</h1>
-    <ul>
-        <li><a href="https://www.example1.com" target="_blank">Example Link 1</a></li>
-        <li><a href="https://www.example2.com" target="_blank">Example Link 2</a></li>
-        <li><a href="https://www.example3.com" target="_blank">Example Link 3</a></li>
-        <li><a href="https://www.example4.com" target="_blank">Example Link 4</a></li>
-        <li><a href="https://www.example5.com" target="_blank">Example Link 5</a></li>
+    <h1>Drives NEI</h1>
+    <div class="last-modification">Última modificação: 18/09/2024</div>
+    <div class="search-container">
+        <input type="text" id="search" placeholder="Search for links..." oninput="filterLinks()">
+    </div>
+    <ul id="linkList">
+        <li>
+            <img src="https://www.sighabitat.pt/files/entidades/10_1.png" alt="Tiago Coelho">
+            <a href="https://www.youtube.com/user/TiagoCoelho" target="_blank">Tiago Coelho</a>
+        </li>
+        <li>
+            <img src="https://www.sighabitat.pt/files/entidades/10_1.png" alt="Beatriz Francisco">
+            <a href="https://www.instagram.com/beatrizfrancisco" target="_blank">Beatriz Francisco</a>
+        </li>
+        <li>
+            <img src="https://www.sighabitat.pt/files/entidades/10_1.png" alt="Link 3">
+            <a href="https://www.example3.com" target="_blank">Link 3</a>
+        </li>
+        <li>
+            <img src="https://www.sighabitat.pt/files/entidades/10_1.png" alt="Link 4">
+            <a href="https://www.example4.com" target="_blank">Link 4</a>
+        </li>
+        <li>
+            <img src="https://www.sighabitat.pt/files/entidades/10_1.png" alt="Link 5">
+            <a href="https://www.example5.com" target="_blank">Link 5</a>
+        </li>
     </ul>
+
+    <script>
+        function filterLinks() {
+            const searchInput = document.getElementById('search').value.toLowerCase();
+            const links = document.querySelectorAll('#linkList li');
+
+            links.forEach(link => {
+                const nameText = link.querySelector('a').innerText.toLowerCase(); // Match the name part
+
+                if (nameText.includes(searchInput)) {
+                    link.style.display = ''; // Show the link
+                } else {
+                    link.style.display = 'none'; // Hide the link
+                }
+            });
+        }
+    </script>
 </body>
 </html>
