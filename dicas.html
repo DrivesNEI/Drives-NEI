@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drives NEI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Centered title for each year */
+        .year-title {
+            text-align: center;
+            font-size: 2em;
+            margin: 30px 0;
+            color: #333;
+        }
+
+        /* Container for each year's semesters, using flexbox */
+        .semester-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+
+        /* Semester box styling, each one takes half the screen */
+        .semester {
+            width: 48%; /* Each semester will take about half the screen */
+        }
+        /* Navbar styling */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+        }
+
+        .navbar img {
+            width: 50px; /* Adjust the size of the icon */
+            height: auto;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            margin: 0 5px;
+            border-radius: 5px;
+            background-color: #444;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            background-color: #555; /* Change color on hover */
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 2.5em;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 2px solid;
+            width: 5ch; /* "Drives NEI" has 10 characters */
+            margin: 0 auto;
+            animation: typing 1s steps(5) forwards, blink 1s step-end infinite;
+        }
+
+        /* Typing animation */
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 5ch; /* Adjust for the length of the title */
+            }
+        }
+
+        /* Blinking cursor animation */
+        @keyframes blink {
+            from, to {
+                border-color: transparent;
+            }
+            50% {
+                border-color: black;
+            }
+        }
+        .last-modification {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #666;
+        }
+        h3 {
+            text-align: center;
+            font-size: 1.5em;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        /* Button styling */
+        .semester-button {
+            background-color: #d3d3d3;
+            color: #333;
+            padding: 15px;
+            text-align: center;
+            border-radius: 10px;
+            margin: 10px 0;
+            position: relative;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease, height 0.3s ease;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 60px; /* Initial height */
+            box-sizing: border-box;
+        }
+
+        /* Button hover effect - smooth expansion downwards */
+        .semester-button:hover {
+            background-color: #b0b0b0;
+            transform: none; /* No scale transform */
+            height: 150px; /* Expanded height to reveal description */
+        }
+
+        /* Hidden description */
+        .semester-button .description {
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: opacity 0.3s ease, max-height 0.3s ease;
+            padding: 10px;
+            color: #555;
+            font-size: 0.9em;
+            position: absolute;
+            bottom: 15px; /* Position description at the bottom */
+        }
+
+        /* Show description on hover */
+        .semester-button:hover .description {
+            opacity: 1;
+            max-height: 100px;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Navbar starts here -->
+    <nav class="navbar">
+        <img src="https://nei.web.ua.pt/assets/logo-1f761f76.png" alt="Logo"> <!-- Replace with actual icon link -->
+        <div>
+            <a href="#dicas">Dicas</a>
+            <a href="https://nei.web.ua.pt" target="_blank">Site do NEI</a>
+        </div>
+    </nav>
+    <!-- Navbar ends here -->
+
+    <h1>Dicas</h1>
+    <div class="last-modification">Última modificação: 18/09/2024</div>
+    <!-- 1º Ano Section -->
+    <div class="year-title">1º Ano</div>
+    <div class="semester-container">
+        <div class="semester">
+            <h3>1º Semestre</h3>
+            <a class="semester-button">
+                Button 1
+                <div class="description">Descrição do botão 1.</div>
+            </a>
+            <a class="semester-button">
+                Button 2
+                <div class="description">Descrição do botão 2.</div>
+            </a>
+            <a class="semester-button">
+                Button 3
+                <div class="description">Descrição do botão 3.</div>
+            </a>
+            <a class="semester-button">
+                Button 4
+                <div class="description">Descrição do botão 4.</div>
+            </a>
+            <a class="semester-button">
+                Button 5
+                <div class="description">Descrição do botão 5.</div>
+            </a>
+        </div>
+        <div class="semester">
+            <h3>2º Semestre</h3>
+            <a class="semester-button">
+                Button 1
+                <div class="description">Descrição do botão 1.</div>
+            </a>
+            <a class="semester-button">
+                Button 2
+                <div class="description">Descrição do botão 2.</div>
+            </a>
+            <a class="semester-button">
+                Button 3
+                <div class="description">Descrição do botão 3.</div>
+            </a>
+            <a class="semester-button">
+                Button 4
+                <div class="description">Descrição do botão 4.</div>
+            </a>
+            <a class="semester-button">
+                Button 5
+                <div class="description">Descrição do botão 5.</div>
+            </a>
+        </div>
+    </div>
+
+    <!-- 2º Ano Section -->
+    <div class="year-title">2º Ano</div>
+    <div class="semester-container">
+        <div class="semester">
+            <h3>1º Semestre</h3>
+            <a class="semester-button">
+                Button 1
+                <div class="description">Descrição do botão 1.</div>
+            </a>
+            <a class="semester-button">
+                Button 2
+                <div class="description">Descrição do botão 2.</div>
+            </a>
+            <a class="semester-button">
+                Button 3
+                <div class="description">Descrição do botão 3.</div>
+            </a>
+            <a class="semester-button">
+                Button 4
+                <div class="description">Descrição do botão 4.</div>
+            </a>
+            <a class="semester-button">
+                Button 5
+                <div class="description">Descrição do botão 5.</div>
+            </a>
+        </div>
+        <div class="semester">
+            <h3>2º Semestre</h3>
+            <a class="semester-button">
+                Button 1
+                <div class="description">Descrição do botão 1.</div>
+            </a>
+            <a class="semester-button">
+                Button 2
+                <div class="description">Descrição do botão 2.</div>
+            </a>
+            <a class="semester-button">
+                Button 3
+                <div class="description">Descrição do botão 3.</div>
+            </a>
+            <a class="semester-button">
+                Button 4
+                <div class="description">Descrição do botão 4.</div>
+            </a>
+            <a class="semester-button">
+                Button 5
+                <div class="description">Descrição do botão 5.</div>
+            </a>
+        </div>
+    </div>
+
+    <!-- 3º Ano Section -->
+    <div class="year-title">3º Ano</div>
+    <div class="semester-container">
+        <div class="semester">
+            <h3>1º Semestre</h3>
+            <a class="semester-button">
+                Button 1
+                <div class="description">Descrição do botão 1.</div>
+            </a>
+            <a class="semester-button">
+                Button 2
+                <div class="description">Descrição do botão 2.</div>
+            </a>
+            <a class="semester-button">
+                Button 3
+                <div class="description">Descrição do botão 3.</div>
+            </a>
+            <a class="semester-button">
+                Button 4
+                <div class="description">Descrição do botão 4.</div>
+            </a>
+            <a class="semester-button">
+                Button 5
+                <div class="description">Descrição do botão 5.</div>
+            </a>
+        </div>
+        <div class="semester">
+            <h3>2º Semestre</h3>
+            <a class="semester-button">
+                Button 1
+                <div class="description">Descrição do botão 1.</div>
+            </a>
+            <a class="semester-button">
+                Button 2
+                <div class="description">Descrição do botão 2.</div>
+            </a>
+            <a class="semester-button">
+                Button 3
+                <div class="description">Descrição do botão 3.</div>
+            </a>
+            <a class="semester-button">
+                Button 4
+                <div class="description">Descrição do botão 4.</div>
+            </a>
+            <a class="semester-button">
+                Button 5
+                <div class="description">Descrição do botão 5.</div>
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>
