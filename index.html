@@ -11,6 +11,36 @@
             margin: 0;
             padding: 20px;
         }
+
+        /* Navbar styling */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+        }
+
+        .navbar img {
+            width: 50px; /* Adjust the size of the icon */
+            height: auto;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            margin: 0 5px;
+            border-radius: 5px;
+            background-color: #444;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            background-color: #555; /* Change color on hover */
+        }
+
         h1 {
             text-align: center;
             color: #333;
@@ -20,7 +50,7 @@
             border-right: 2px solid;
             width: 15ch; /* "Drives NEI" has 10 characters */
             margin: 0 auto;
-            animation: typing 1s steps(10) forwards, blink 1s step-end infinite;
+            animation: typing 2s steps(10) forwards, blink 1s step-end infinite;
         }
 
         /* Typing animation */
@@ -101,6 +131,17 @@
     </style>
 </head>
 <body>
+
+    <!-- Navbar starts here -->
+    <nav class="navbar">
+        <img src="https://nei.web.ua.pt/assets/logo-1f761f76.png" alt="Logo"> <!-- Replace with actual icon link -->
+        <div>
+            <a href="#dicas">Dicas</a>
+            <a href="https://nei.web.ua.pt" target="_blank">Site do NEI</a>
+        </div>
+    </nav>
+    <!-- Navbar ends here -->
+
     <h1>Drives NEI</h1>
     <div class="last-modification">Última modificação: 18/09/2024</div>
     <div class="search-container">
@@ -147,30 +188,4 @@
         <li>
             <a href="https://uapt33090-my.sharepoint.com/personal/andreaoliveira_ua_pt/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fandreaoliveira_ua_pt%2FDocuments%2FLEI%20-%20André%20Oliveira&ga=1" target="_blank" class="link-box">
                 <img src="https://www.sighabitat.pt/files/entidades/10_1.png" alt="André Oliveira">
-                <span>André Oliveira</span>
-            </a>
-        </li>
-    </ul>
-
-    <script>
-        function filterLinks() {
-            const searchInput = removeAccents(document.getElementById('search').value.toLowerCase());
-            const links = document.querySelectorAll('#linkList li');
-
-            links.forEach(link => {
-                const nameText = removeAccents(link.querySelector('.link-box span').innerText.toLowerCase());
-
-                if (nameText.includes(searchInput)) {
-                    link.style.display = ''; // Show the link
-                } else {
-                    link.style.display = 'none'; // Hide the link
-                }
-            });
-        }
-
-        function removeAccents(text) {
-            return text.normalize("NFD").replace(/[\u0300-\u036f]/g, ""); // Remove accents
-        }
-    </script>
-</body>
-</html>
+                <span>André
