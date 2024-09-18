@@ -33,31 +33,36 @@
         ul {
             list-style-type: none;
             padding: 0;
-            text-align: left; /* Align links to the left */
             margin: 0 auto; /* Center the list on the page */
             max-width: 600px; /* Limit the width of the list */
         }
         li {
             margin: 10px 0;
         }
+        .link-box {
+            background-color: #d3d3d3; /* Light grey */
+            padding: 10px;
+            border-radius: 10px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            display: flex; /* Use flexbox to align items */
+            align-items: center; /* Center items vertically */
+            height: 50px; /* Initial height */
+            cursor: pointer; /* Change cursor to pointer */
+            position: relative; /* Positioning for smoother expansion */
+            text-decoration: none; /* Remove underline */
+        }
+        .link-box:hover {
+            background-color: #b0b0b0; /* Slightly darker grey on hover */
+            transform: scale(1.1); /* Expand both width and height */
+        }
+        .link-box span {
+            font-weight: bold; /* Make the text slightly bolder */
+            color: #4a4a4a; /* Dark grey color for names */
+        }
         img {
-            display: inline-block;
             width: 50px; /* Adjust size as needed */
             height: auto;
-            vertical-align: middle;
             margin-right: 10px; /* Space between image and link text */
-        }
-        a {
-            text-decoration: none;
-            color: white;
-            background-color: #007BFF;
-            padding: 10px 15px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-            display: inline-block; /* Needed for rectangle effect */
-        }
-        a:hover {
-            background-color: #0056b3;
         }
     </style>
 </head>
@@ -69,24 +74,34 @@
     </div>
     <ul id="linkList">
         <li>
-            <img src="https://www.sighabitat.pt/files/entidades/10_1.png" alt="Tiago Coelho">
-            <a href="https://www.youtube.com/user/TiagoCoelho" target="_blank">Tiago Coelho</a>
+            <a href="https://uapt33090-my.sharepoint.com/personal/carolinaprata_ua_pt/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fcarolinaprata_ua_pt%2FDocuments&ga=1" target="_blank" class="link-box">
+                <img src="https://www.sighabitat.pt/files/entidades/10_1.png" alt="Carolina Prata">
+                <span>Carolina Prata</span>
+            </a>
         </li>
         <li>
-            <img src="https://www.sighabitat.pt/files/entidades/10_1.png" alt="Beatriz Francisco">
-            <a href="https://www.instagram.com/beatrizfrancisco" target="_blank">Beatriz Francisco</a>
+            <a href="https://uapt33090-my.sharepoint.com/personal/diogodomingues04_ua_pt/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fdiogodomingues04_ua_pt%2FDocuments%2FUA&ga=1" target="_blank" class="link-box">
+                <img src="https://www.sighabitat.pt/files/entidades/10_1.png" alt="Diogo Domingues">
+                <span>Diogo Domingues</span>
+            </a>
         </li>
         <li>
-            <img src="https://www.sighabitat.pt/files/entidades/10_1.png" alt="Link 3">
-            <a href="https://www.example3.com" target="_blank">Link 3</a>
+            <a href="https://uapt33090-my.sharepoint.com/personal/joaovarela_ua_pt/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fjoaovarela_ua_pt%2FDocuments%2FLEI%20-%20João%20Varela&ga=1" target="_blank" class="link-box">
+                <img src="https://www.sighabitat.pt/files/entidades/10_1.png" alt="João Varela">
+                <span>João Varela</span>
+            </a>
         </li>
         <li>
-            <img src="https://www.sighabitat.pt/files/entidades/10_1.png" alt="Link 4">
-            <a href="https://www.example4.com" target="_blank">Link 4</a>
+            <a href="https://uapt33090-my.sharepoint.com/personal/raquelvinagre_ua_pt/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fraquelvinagre_ua_pt%2FDocuments%2FLEI%20-%20Raquel%20Vinagre&ga=1" target="_blank" class="link-box">
+                <img src="https://www.sighabitat.pt/files/entidades/10_1.png" alt="Raquel Vinagre">
+                <span>Raquel Vinagre</span>
+            </a>
         </li>
         <li>
-            <img src="https://www.sighabitat.pt/files/entidades/10_1.png" alt="Link 5">
-            <a href="https://www.example5.com" target="_blank">Link 5</a>
+            <a href="https://uapt33090-my.sharepoint.com/:f:/g/personal/trs_coelho_ua_pt/EguFAabF9btHqoQSMXWKbpEBPJ0OyxqqTPi9IaQxifmMTQ?e=8D3FCi" target="_blank" class="link-box">
+                <img src="https://www.sighabitat.pt/files/entidades/10_1.png" alt="Tiago Coelho">
+                <span>Tiago Coelho</span>
+            </a>
         </li>
     </ul>
 
@@ -96,7 +111,7 @@
             const links = document.querySelectorAll('#linkList li');
 
             links.forEach(link => {
-                const nameText = link.querySelector('a').innerText.toLowerCase(); // Match the name part
+                const nameText = link.querySelector('.link-box span').innerText.toLowerCase(); // Match the name part
 
                 if (nameText.includes(searchInput)) {
                     link.style.display = ''; // Show the link
