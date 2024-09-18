@@ -188,4 +188,26 @@
         <li>
             <a href="https://uapt33090-my.sharepoint.com/personal/andreaoliveira_ua_pt/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fandreaoliveira_ua_pt%2FDocuments%2FLEI%20-%20André%20Oliveira&ga=1" target="_blank" class="link-box">
                 <img src="https://www.sighabitat.pt/files/entidades/10_1.png" alt="André Oliveira">
-                <span>André
+                <span>André Oliveira</span>
+            </a>
+        </li>
+    </ul>
+    <script>
+        function filterLinks() {
+            const searchInput = removeAccents(document.getElementById('search').value.toLowerCase());
+            const links = document.querySelectorAll('#linkList li');
+            links.forEach(link => {
+                const nameText = removeAccents(link.querySelector('.link-box span').innerText.toLowerCase());
+                if (nameText.includes(searchInput)) {
+                    link.style.display = ''; // Show the link
+                } else {
+                    link.style.display = 'none'; // Hide the link
+                }
+            });
+        }
+        function removeAccents(text) {
+            return text.normalize("NFD").replace(/[\u0300-\u036f]/g, ""); // Remove accents
+        }
+    </script>
+</body>
+</html>
