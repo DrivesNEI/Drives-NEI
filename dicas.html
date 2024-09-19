@@ -25,11 +25,19 @@
             display: flex;
             justify-content: space-between;
             margin-bottom: 40px;
+            flex-wrap: wrap;
         }
 
-        /* Semester box styling, each one takes half the screen */
+        /* Semester box styling */
         .semester {
-            width: 48%; /* Each semester will take about half the screen */
+            width: 48%;
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 768px) {
+            .semester {
+                width: 100%;
+            }
         }
 
         /* Navbar styling */
@@ -43,8 +51,13 @@
         }
 
         .navbar img {
-            width: 50px; /* Adjust the size of the icon */
+            width: 50px;
             height: auto;
+        }
+
+        .navbar-links {
+            display: flex;
+            gap: 10px;
         }
 
         .navbar a {
@@ -58,7 +71,47 @@
         }
 
         .navbar a:hover {
-            background-color: #555; /* Change color on hover */
+            background-color: #555;
+        }
+
+        /* Mobile nav styles */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+        }
+
+        .navbar-links-mobile {
+            display: none;
+            flex-direction: column;
+            background-color: #333;
+        }
+
+        .navbar-links-mobile a {
+            padding: 15px;
+            text-align: center;
+        }
+
+        /* Show mobile nav when active */
+        .navbar.active .navbar-links-mobile {
+            display: flex;
+        }
+
+        @media (max-width: 768px) {
+            .navbar-links {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
         }
 
         h1 {
@@ -68,22 +121,20 @@
             white-space: nowrap;
             overflow: hidden;
             border-right: 2px solid;
-            width: 5ch; /* "Drives NEI" has 10 characters */
+            width: 5ch;
             margin: 0 auto;
             animation: typing 1s steps(5) forwards, blink 1s step-end infinite;
         }
 
-        /* Typing animation */
         @keyframes typing {
             from {
                 width: 0;
             }
             to {
-                width: 5ch; /* Adjust for the length of the title */
+                width: 5ch;
             }
         }
 
-        /* Blinking cursor animation */
         @keyframes blink {
             from, to {
                 border-color: transparent;
@@ -115,21 +166,12 @@
             border-radius: 10px;
             margin: 10px 0;
             cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease, height 0.3s ease;
-            overflow: hidden;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
             align-items: center;
-            height: 60px; /* Initial height */
             box-sizing: border-box;
             position: relative;
-        }
-
-        /* Button hover effect - smooth expansion downwards */
-        .semester-button:hover {
-            background-color: #b0b0b0;
-            height: 500px; /* Expanded height to reveal description */
         }
 
         /* Hidden description */
@@ -143,24 +185,34 @@
             font-size: 0.9em;
         }
 
-        /* Show description on hover */
-        .semester-button:hover .description {
-            opacity: 1;
-            max-height: 500px;
-        }
-
         /* Title for the subject, always stays on top */
         .semester-button b {
             margin-bottom: 5px;
             display: block;
+        }
+
+        /* Active class for expanded buttons */
+        .semester-button.active .description {
+            opacity: 1;
+            max-height: 500px;
         }
     </style>
 </head>
 <body>
     <!-- Navbar starts here -->
     <nav class="navbar">
-        <img src="https://nei.web.ua.pt/assets/logo-1f761f76.png" alt="Logo"> <!-- Replace with actual icon link -->
-        <div>
+        <img src="https://nei.web.ua.pt/assets/logo-1f761f76.png" alt="Logo">
+        <div class="navbar-links">
+            <a href="https://drivesnei.github.io/Drives-NEI">Drives</a>
+            <a href="https://drivesnei.github.io/Drives-NEI/dicas">Dicas</a>
+            <a href="https://nei.web.ua.pt" target="_blank">Site do NEI</a>
+        </div>
+        <div class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="navbar-links-mobile">
             <a href="https://drivesnei.github.io/Drives-NEI">Drives</a>
             <a href="https://drivesnei.github.io/Drives-NEI/dicas">Dicas</a>
             <a href="https://nei.web.ua.pt" target="_blank">Site do NEI</a>
@@ -184,7 +236,9 @@
                     <br>Dicas para os projetos:
                     <br>
                     <br>► Corrijam os projetos dos vossos colegas com calma de forma a obterem uma boa nota em relação à vossa avaliação e, consequentemente, a nota do vosso projeto não ser afetada negativamente
+                    <br>
                     <br>► Façam sempre um menu de boas vindas para o utilizador como aspeto "inovador" a valorizar na hora da avaliação por parte dos vossos colegas
+                    <br>
                     <br>► Não desvalorizem os projetos. Mesmo que cada projeto apenas valha 1 valor na vossa nota final, quando for a altura de fazer o APF (Avaliação Prática Final), se essa componente não estiver acima de 6.5 valores estão reprovados, e muitas vezes estes projetos compensam pelo desastre que os testes do Code Check são...
                     <br>
                     <br>► Dediquem tempo aos projetos e corrijam quaisquer "loose ends" que estejam por aí metidas.
@@ -219,19 +273,19 @@
                 <div class="description">
                     <b>Modelação e Análise de Sistemas</b>
                     <br>Nesta cadeira aprendem principalmente todo o processo de preparação e planeamento de um projeto ou sistema.
-                    <br>
                     <br>Geralmente costuma-se achar a cadeira um pouco chata e inútil, mas irá vir de encontro com uma futura cadeira POO (Programação Orientada a Objetos) em que será necessário ter uma perceção básica de MAS.
                     <br>
                     <br>Dicas para o Exame Teórico:
                     <br>
                     <br>► Estudar um pouco os slides e o material recomendado pelo professor (geralmente na última aula teórica).
+                    <br>
                     <br>► Ver Exame Teórico 23/24 ➡ https://tinyurl.com/ynntaz77
                 </div>
             </a>
             <a class="semester-button">
                 ALGA - A
                 <div class="description">
-                    <b>Álgebra Linear e Geometria Analítica</b>
+                    <b>Álgebra Linear e Geometria Analítica - A</b>
                     <br>Esta cadeira é de forma geral acessível (principalmente no 1ºTeste onde se consegue tirar 18+ facilmente), depois o 2ºTeste já complica bastante.
                     <br>Esta cadeira terá utilidade mais à frente no 2ºAno onde aprenderão a liguagem MatLab que consiste na utilização de matrizes
                     <br>
@@ -243,7 +297,7 @@
                 </div>
             </a>
             <a class="semester-button">
-                Cálculo I - C
+                C I - C
                 <div class="description">
                     <b>Cálculo I - C</b>
                     <br>Cadeira bastante trabalhosa mas não passa de matemática do secundário só que num ritmo e complexidade mais elevado.
@@ -253,7 +307,7 @@
                     <br>
                     <br>► Resolver exercícios das fichas e comparar os resultados com resoluções de alguma drive (normalmente estão mais completas do que as soluções dos professores)
                     <br>
-                    <br>► Estudar com auxílio destes links:
+                    <br>► Estudar em articulação com estes links:
                     <ul>
                         <li>Integral Calculator ➡ https://www.integral-calculator.com</li>
                         <li>MathDF ➡ https://mathdf.com/dif/</li>
@@ -305,16 +359,39 @@
                     <br>
                     <br>► Realmente aproveitar o 1ºTeste
                     <br>
-                    <br>► Na época de exames, mesmo que sintam que não percebem nada de Assembly, refaçam os guiões da aula prática que em 3-5 dias ficam a perceber bem
+                    <br>► Na época de exames, mesmo que sintam que não percebem nada de Assembly, refaçam os guiões das aulas práticas que em 3-5 dias ficam a perceber bem
                 </div>
             </a>
             <a class="semester-button">
                 MD
-                <div class="description"><b>Matemática Discreta</b><br>Aproveitar os minitestes e a parte dos grafos para subir a nota</br></div>
+                <div class="description">
+                    <b>Matemática Discreta</b>
+                    <br>Nesta cadeira falam de lógica (conceitos de Filosofia), probabilidades, funções geradoras e grafos
+                    <br>É uma cadeira bastante trabalhosa e um pouco difícil de entender alguns conceitos
+                    <br>
+                    <br>Dicas:
+                    <br>
+                    <br>► Aproveitar os minitestes (menos matérias e ainda valem alguma coisa)
+                    <br>
+                    <br>► Resolver exercícios das fichas e comparar os resultados com resoluções de alguma drive (normalmente estão mais completas do que as soluções dos professores)
+                </div>
             </a>
             <a class="semester-button">
-                Cálculo II - C
-                <div class="description"><b>Cálculo II - C</b><br>Teste</br></div>
+                C II - C
+                <div class="description">
+                    <b>Cálculo II - C</b>
+                    <br>Cadeira bastante trabalhosa mas não passa de matemática do secundário só que num ritmo e complexidade mais elevado.
+                    <br>Geralmente o 1ºTeste é mais fácil uma vez que a maioria da matéria segue uma resolução padronizada.
+                    <br>
+                    <br>Dicas:
+                    <br>
+                    <br>► Resolver exercícios das fichas e comparar os resultados com resoluções de alguma drive (normalmente estão mais completas do que as soluções dos professores)
+                    <br>
+                    <br>► Estudar em articulação com este link:
+                    <ul>
+                        <li>Geogebra 3D ➡ https://www.geogebra.org/3d</li>
+                    </ul>
+                </div>
             </a>
         </div>
     </div>
@@ -420,6 +497,23 @@
             </a>
         </div>
     </div>
+    <script>
+        // Handle mobile navbar toggle
+        const navbar = document.querySelector('.navbar');
+        const hamburger = document.querySelector('.hamburger');
 
+        hamburger.addEventListener('click', () => {
+            navbar.classList.toggle('active');
+        });
+
+        // Handle button click to expand description
+        const buttons = document.querySelectorAll('.semester-button');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                button.classList.toggle('active');
+            });
+        });
+    </script>
 </body>
 </html>
