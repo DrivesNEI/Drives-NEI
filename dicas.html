@@ -31,6 +31,7 @@
         .semester {
             width: 48%; /* Each semester will take about half the screen */
         }
+
         /* Navbar styling */
         .navbar {
             display: flex;
@@ -59,6 +60,7 @@
         .navbar a:hover {
             background-color: #555; /* Change color on hover */
         }
+
         h1 {
             text-align: center;
             color: #333;
@@ -90,11 +92,13 @@
                 border-color: black;
             }
         }
+
         .last-modification {
             text-align: center;
             margin-bottom: 20px;
             color: #666;
         }
+
         h3 {
             text-align: center;
             font-size: 1.5em;
@@ -110,22 +114,22 @@
             text-align: center;
             border-radius: 10px;
             margin: 10px 0;
-            position: relative;
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.3s ease, height 0.3s ease;
             overflow: hidden;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            justify-content: flex-start;
             align-items: center;
             height: 60px; /* Initial height */
             box-sizing: border-box;
+            position: relative;
         }
 
         /* Button hover effect - smooth expansion downwards */
         .semester-button:hover {
             background-color: #b0b0b0;
-            transform: none; /* No scale transform */
-            height: 150px; /* Expanded height to reveal description */
+            height: 500px; /* Expanded height to reveal description */
         }
 
         /* Hidden description */
@@ -137,16 +141,19 @@
             padding: 10px;
             color: #555;
             font-size: 0.9em;
-            position: absolute;
-            bottom: 15px; /* Position description at the bottom */
         }
 
         /* Show description on hover */
         .semester-button:hover .description {
             opacity: 1;
-            max-height: 100px;
+            max-height: 500px;
         }
 
+        /* Title for the subject, always stays on top */
+        .semester-button b {
+            margin-bottom: 5px;
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -170,15 +177,49 @@
             <h3>1º Semestre</h3>
             <a class="semester-button">
                 FP
-                <div class="description"><b>Fundamentos de Programação</b><br>Teste</div>
+                <div class="description">
+                    <b>Fundamentos de Programação</b>
+                    <br>Esta cadeira é relativamente simples, aprendem Python e outros básicos da programação.
+                    <br>
+                    <br>Dicas para os projetos:
+                    <br>► Corrijam os projetos dos vossos colegas com calma de forma a obterem uma boa nota em relação à vossa avaliação e, consequentemente, a nota do vosso projeto não ser afetada negativamente;
+                    <br>► Façam sempre um menu de boas vindas para o utilizador como aspeto "inovador" a valorizar na hora da avaliação por parte dos vossos colegas;
+                    <br>► Não desvalorizem os projetos. Mesmo que cada projeto apenas valha 1 valor na vossa nota final, quando for a altura de fazer o APF (Avaliação Prática Final), se essa componente não estiver acima de 6.5 valores estão reprovados, e muitas vezes estes projetos compensam pelo desastre que os testes do Code Check são...
+                    <br>
+                    <br>Por isso, dediquem tempo aos projetos e corrijam quaisquer "loose ends" que estejam por aí metidas.
+                </div>
             </a>
             <a class="semester-button">
                 ITW
-                <div class="description"><b>Introdução às Tecnologias Web</b><br>Teste</br></div>
+                <div class="description">
+                    <b>Introdução às Tecnologias Web</b>
+                    <br>Nesta cadeira aprendem principalmente HTML, CSS e JavaScript
+                    <br>
+                    <br>Normalmente, se atingirem a nota mínima na componente teórica, o professor costuma facilitar na aprovação à cadeira
+                    <br>
+                    <br>Dicas para os testes teóricos:
+                    <br>► Responder aos seguintes quizzes:
+                    <ul style="font-size:11px; text-align:justify">
+                        <li>HTML ➡ https://www.w3schools.com/html/html_quiz.asp</li>
+                        <li>CSS > https://www.w3schools.com/css/css_quiz.asp</li>
+                        <li>JavaScript > https://www.w3schools.com/js/js_quiz.asp</li>
+                        <li>Bootstrap > https://www.w3schools.com/bootstrap/bootstrap_quiz.asp</li>
+                        <li>jQuery > https://www.w3schools.com/jquery/jquery_quiz.asp</li>
+                    </ul>
+                    <br>
+                    <br>As perguntas teóricas são extremamente parecidas a estas (pelo menos 50% do teste), a parte escrita já é um pouco questão de sorte.
+                    <br>Em relação ao projeto usem AI se precisarem (muito provável), no entanto garantam que percebem o que está a acontecer e deixem o mais simples possível uma vez que vão ter de apresentar o projeto.
+                    <br>
+                    <br>
+                </div>
             </a>
             <a class="semester-button">
                 MAS
-                <div class="description"><b>Modelação e Análise de Sistemas</b><br>Teste</br></div>
+                <div class="description">
+                    <b>Modelação e Análise de Sistemas</b>
+                    <br>Nesta cadeira aprendem principalmente todo o processo de preparação e planeamento de um projeto ou sistema.
+                    <br>Geralmente costuma-se achar a cadeira um pouco chata e inútil mas irá vir de encontro com uma futura cadeira POO (Programação Orientada a Objetos) em que será necessário ter uma perceção básica de MAS.
+                </div>
             </a>
             <a class="semester-button">
                 ALGA - A
