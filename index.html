@@ -12,6 +12,34 @@
             padding: 20px;
         }
 
+        /* Centered title for each year */
+        .year-title {
+            text-align: center;
+            font-size: 2em;
+            margin: 30px 0;
+            color: #333;
+        }
+
+        /* Container for each year's semesters, using flexbox */
+        .semester-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        /* Semester box styling */
+        .semester {
+            width: 48%;
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 768px) {
+            .semester {
+                width: 100%;
+            }
+        }
+
         /* Navbar styling */
         .navbar {
             display: flex;
@@ -23,7 +51,7 @@
         }
 
         .navbar img {
-            width: 50px; /* Adjust the size of the icon */
+            width: 50px;
             height: auto;
         }
 
@@ -43,7 +71,7 @@
         }
 
         .navbar a:hover {
-            background-color: #555; /* Change color on hover */
+            background-color: #555;
         }
 
         /* Mobile nav styles */
@@ -93,9 +121,9 @@
             white-space: nowrap;
             overflow: hidden;
             border-right: 2px solid;
-            width: 15ch;
+            width: 5ch;
             margin: 0 auto;
-            animation: typing 2s steps(10) forwards, blink 1s step-end infinite;
+            animation: typing 1s steps(5) forwards, blink 1s step-end infinite;
         }
 
         @keyframes typing {
@@ -103,7 +131,7 @@
                 width: 0;
             }
             to {
-                width: 9ch;
+                width: 5ch;
             }
         }
 
@@ -121,63 +149,59 @@
             margin-bottom: 20px;
             color: #666;
         }
-        .search-container {
+
+        h3 {
             text-align: center;
-            margin-bottom: 10px;
-        }
-        input[type="text"] {
-            padding: 10px;
-            width: 300px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .disclaimer {
-            text-align: center;
-            color: #666;
-            font-size: 12px;
+            font-size: 1.5em;
+            color: #333;
             margin-bottom: 20px;
         }
-        ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0 auto; /* Center the list on the page */
-            max-width: 600px; /* Limit the width of the list */
-        }
-        li {
-            margin: 10px 0;
-        }
-        .link-box {
-            background-color: #d3d3d3; /* Light grey */
-            padding: 10px;
+
+        /* Button styling */
+        .semester-button {
+            background-color: #d3d3d3;
+            color: #333;
+            padding: 15px;
+            text-align: center;
             border-radius: 10px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            display: flex; /* Use flexbox to align items */
-            align-items: center; /* Center items vertically */
-            height: 50px; /* Initial height */
-            cursor: pointer; /* Change cursor to pointer */
-            position: relative; /* Positioning for smoother expansion */
-            text-decoration: none; /* Remove underline */
+            margin: 10px 0;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            box-sizing: border-box;
+            position: relative;
         }
-        .link-box:hover {
-            background-color: #b0b0b0; /* Slightly darker grey on hover */
-            transform: scale(1.1); /* Expand both width and height */
+
+        /* Hidden description */
+        .semester-button .description {
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: opacity 0.3s ease, max-height 0.3s ease;
+            padding: 10px;
+            color: #555;
+            font-size: 0.9em;
         }
-        .link-box span {
-            font-weight: bold; /* Make the text slightly bolder */
-            color: #4a4a4a; /* Dark grey color for names */
+
+        /* Title for the subject, always stays on top */
+        .semester-button b {
+            margin-bottom: 5px;
+            display: block;
         }
-        img {
-            width: 50px; /* Adjust size as needed */
-            height: auto;
-            margin-right: 10px; /* Space between image and link text */
+
+        /* Active class for expanded buttons */
+        .semester-button.active .description {
+            opacity: 1;
+            max-height: 1000px;
         }
     </style>
 </head>
 <body>
-
     <!-- Navbar starts here -->
     <nav class="navbar">
-        <img src="https://nei.web.ua.pt/assets/logo-1f761f76.png" alt="Logo"> <!-- Replace with actual icon link -->
+        <img src="https://nei.web.ua.pt/assets/logo-1f761f76.png" alt="Logo">
         <div class="navbar-links">
             <a href="https://drivesnei.github.io/Drives-NEI">Drives</a>
             <a href="https://drivesnei.github.io/Drives-NEI/dicas">Dicas</a>
@@ -196,80 +220,422 @@
     </nav>
     <!-- Navbar ends here -->
 
-    <h1>Drives NEI</h1>
+    <h1>Dicas</h1>
     <div class="last-modification">Última modificação: 18/09/2024</div>
-    <div class="search-container">
-        <input type="text" id="search" placeholder="Procura uma drive..." oninput="filterLinks()">
+    <!-- 1º Ano Section -->
+    <div class="year-title">1º Ano</div>
+    <div class="semester-container">
+        <div class="semester">
+            <h3>1º Semestre</h3>
+            <a class="semester-button">
+                FP
+                <div class="description">
+                    <b>Fundamentos de Programação</b>
+                    <br>Esta cadeira é relativamente simples, aprendem Python e outros básicos da programação.
+                    <br>
+                    <br>Dicas para os projetos:
+                    <br>
+                    <br>► Corrijam os projetos dos vossos colegas com calma de forma a obterem uma boa nota em relação à vossa avaliação e, consequentemente, a nota do vosso projeto não ser afetada negativamente
+                    <br>
+                    <br>► Façam sempre um menu de boas vindas para o utilizador como aspeto "inovador" a valorizar na hora da avaliação por parte dos vossos colegas
+                    <br>
+                    <br>► Não desvalorizem os projetos. Mesmo que cada projeto apenas valha 1 valor na vossa nota final, quando for a altura de fazer o APF (Avaliação Prática Final), se essa componente não estiver acima de 6.5 valores estão reprovados, e muitas vezes estes projetos compensam pelo desastre que os testes do Code Check são...
+                    <br>
+                    <br>► Dediquem tempo aos projetos e corrijam quaisquer "loose ends" que estejam por aí metidas.
+                </div>
+            </a>
+            <a class="semester-button">
+                ITW
+                <div class="description">
+                    <b>Introdução às Tecnologias Web</b>
+                    <br>Nesta cadeira aprendem principalmente HTML, CSS e JavaScript
+                    <br>
+                    <br>Normalmente, se atingirem a nota mínima na componente teórica, o professor costuma facilitar na aprovação à cadeira
+                    <br>
+                    <ul>
+                        <li>HTML Visualizer ➡ https://codebeautify.org/htmlviewer</li>
+                    </ul>
+                    Dicas para os testes teóricos:
+                    <br>
+                    <br>► Responder aos seguintes quizzes:
+                    <ul>
+                        <li>HTML ➡ https://www.w3schools.com/html/html_quiz.asp</li>
+                        <li>CSS ➡ https://www.w3schools.com/css/css_quiz.asp</li>
+                        <li>JavaScript ➡ https://www.w3schools.com/js/js_quiz.asp</li>
+                        <li>Bootstrap ➡ https://www.w3schools.com/bootstrap/bootstrap_quiz.asp</li>
+                        <li>jQuery ➡ https://www.w3schools.com/jquery/jquery_quiz.asp</li>
+                    </ul>
+                    <br>As perguntas teóricas são extremamente parecidas a estas (pelo menos 50% do teste), a parte escrita já é um pouco questão de sorte.
+                    <br>Em relação ao projeto usem AI se precisarem (muito provável), no entanto garantam que percebem o que está a acontecer e deixem o mais simples possível uma vez que vão ter de apresentar o projeto.
+                </div>
+            <a class="semester-button">
+                MAS
+                <div class="description">
+                    <b>Modelação e Análise de Sistemas</b>
+                    <br>Nesta cadeira aprendem principalmente todo o processo de preparação e planeamento de um projeto ou sistema.
+                    <br>Geralmente costuma-se achar a cadeira um pouco chata e inútil, mas irá vir de encontro com uma futura cadeira POO (Programação Orientada a Objetos) em que será necessário ter uma perceção básica de MAS.
+                    <br>
+                    <br>Dicas para o Exame Teórico:
+                    <br>
+                    <br>► Estudar um pouco os slides e o material recomendado pelo professor (geralmente na última aula teórica).
+                    <br>
+                    <br>► Ver Exame Teórico 23/24 ➡ https://tinyurl.com/ynntaz77
+                </div>
+            </a>
+            <a class="semester-button">
+                ALGA - A
+                <div class="description">
+                    <b>Álgebra Linear e Geometria Analítica - A</b>
+                    <br>Esta cadeira é de forma geral acessível (principalmente no 1ºTeste onde se consegue tirar 18+ facilmente), depois o 2ºTeste já complica bastante.
+                    <br>Esta cadeira terá utilidade mais à frente no 2ºAno onde aprenderão a liguagem MatLab que consiste na utilização de matrizes
+                    <br>
+                    <br>Dicas:
+                    <br>
+                    <br>► Realmente aproveitar o 1ºTeste
+                    <br>
+                    <br>► Resolver exercícios das fichas e comparar os resultados com resoluções de alguma drive (normalmente estão mais completas do que as soluções dos professores)
+                </div>
+            </a>
+            <a class="semester-button">
+                C I - C
+                <div class="description">
+                    <b>Cálculo I - C</b>
+                    <br>Cadeira bastante trabalhosa mas não passa de matemática do secundário só que num ritmo e complexidade mais elevado.
+                    <br>Geralmente o 2ºTeste é mais fácil uma vez que um dos temas abordados é EDOs (Equações Diferenciais Ordinárias) e que seguem uma resolução padronizada.
+                    <br>
+                    <br>Dicas:
+                    <br>
+                    <br>► Resolver exercícios das fichas e comparar os resultados com resoluções de alguma drive (normalmente estão mais completas do que as soluções dos professores)
+                    <br>
+                    <br>► Estudar em articulação com estes links:
+                    <ul>
+                        <li>Integral Calculator ➡ https://www.integral-calculator.com</li>
+                        <li>MathDF ➡ https://mathdf.com/dif/</li>
+                    </ul>
+                </div>
+            </a>
+        </div>
+        <div class="semester">
+            <h3>2º Semestre</h3>
+            <a class="semester-button">
+                POO
+                <div class="description">
+                    <b>Programação Orientada a Objetos</b>
+                    <br>Nesta cadeira aprendem essencialmente Java e, de forma inconsciente, articulam os conhecimentos de uma cadeira anterior, MAS.
+                    <br>Esta cadeira é de certa forma acessível, caso se faça o acompanhamento regular durante o semestre no entanto a entrega de guiões semanais é demasiado trabalhosa.
+                    <br>
+                    <br>Dicas:
+                    <br>
+                    <br>► Tentar realmente aprender Java nesta cadeira e não mais à frente no curso
+                    <br>
+                    <br>► Se receberem uma avaliação discriminada sobre onde erraram (por exemplo omissão de métodos @Override que, por convenção, se devem logo definir) tentem corrigir logo para que no Exame Prático não vos falhem esses pequenos detalhes
+                    <br>
+                    <br>Dicas para o Exame Prático:
+                    <br>
+                    <br>► Voltar a refazer os exercícios do guiões onde vos é apresentado um sistema mais complexo, tipo venda de bilhetes, organização de um estabelecimento, etc... (uma vez que é num exercício desses que o exame se baseia)
+                </div>
+            </a>
+            <a class="semester-button">
+                MSF
+                <div class="description">
+                    <b>Modelação de Sistemas Físicos</b>
+                    <br>Nesta cadeira aprendem conceitos de física (mais baseados em matemática, como por exemplo métodos numéricos) e também a analisar resultados físicos com opinião crítica.
+                    <br>Em geral esta cadeira não é muito complicada, no entanto as aulas teóricas fazem parecer pois estão cheios de fórmulas.
+                    <br>Se conseguirem entender os exercícios dos guiões práticos e os exercícios que o professor disponibiliza conseguem passar de forma tranquila.
+                    <br>
+                    <br>Dicas para os Testes:
+                    <br>
+                    <br>► Fazer os testes de anos anteriores (são 50% iguais, muitas vezes só trocam os valores)
+                </div>
+            </a>
+            <a class="semester-button">
+                IAC
+                <div class="description">
+                    <b>Introdução à Arquitetura de Computadores</b>
+                    <br>Esta cadeira fala da arquitetura de computadores ao nível mais baixo possível, binário, hexadecimal, portas lógicas, etc...
+                    <br>O primeiro teste é definitivamente o mais fácil (consegue-se tirar 17+ facilmente), sendo que após a introdução da matéria dos Multiplexers, a matéria dificulta bastante.
+                    <br>
+                    <br>Dicas:
+                    <br>
+                    <br>► Realmente aproveitar o 1ºTeste
+                    <br>
+                    <br>► Na época de exames, mesmo que sintam que não percebem nada de Assembly, refaçam os guiões das aulas práticas que em 3-5 dias ficam a perceber bem
+                </div>
+            </a>
+            <a class="semester-button">
+                MD
+                <div class="description">
+                    <b>Matemática Discreta</b>
+                    <br>Nesta cadeira falam de lógica (conceitos de Filosofia), probabilidades, funções geradoras e grafos
+                    <br>É uma cadeira bastante trabalhosa e um pouco difícil de entender alguns conceitos
+                    <br>
+                    <br>Dicas:
+                    <br>
+                    <br>► Aproveitar os minitestes (menos matérias e ainda valem alguma coisa)
+                    <br>
+                    <br>► Resolver exercícios das fichas e comparar os resultados com resoluções de alguma drive (normalmente estão mais completas do que as soluções dos professores)
+                </div>
+            </a>
+            <a class="semester-button">
+                C II - C
+                <div class="description">
+                    <b>Cálculo II - C</b>
+                    <br>Cadeira bastante trabalhosa mas não passa de matemática do secundário só que num ritmo e complexidade mais elevado.
+                    <br>Geralmente o 1ºTeste é mais fácil uma vez que a maioria da matéria segue uma resolução padronizada.
+                    <br>
+                    <br>Dicas:
+                    <br>
+                    <br>► Resolver exercícios das fichas e comparar os resultados com resoluções de alguma drive (normalmente estão mais completas do que as soluções dos professores)
+                    <br>
+                    <br>► Estudar em articulação com este link:
+                    <ul>
+                        <li>Geogebra 3D ➡ https://www.geogebra.org/3d</li>
+                    </ul>
+                </div>
+            </a>
+        </div>
     </div>
-    <p class="disclaimer">* É possível que te depares com algumas drives sem acesso, se isso acontecer não hesites em pedir permissão!</p>
-    <ul id="linkList">
-        <li>
-            <a href="https://uapt33090-my.sharepoint.com/personal/carolinaprata_ua_pt/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fcarolinaprata_ua_pt%2FDocuments&ga=1" target="_blank" class="link-box">
-                <img src="https://www.sighabitat.pt/files/entidades/10_1.png" alt="Carolina Prata">
-                <span>Carolina Prata</span>
-            </a>
-        </li>
-        <li>
-            <a href="https://uapt33090-my.sharepoint.com/personal/diogodomingues04_ua_pt/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fdiogodomingues04_ua_pt%2FDocuments%2FUA&ga=1" target="_blank" class="link-box">
-                <img src="https://www.sighabitat.pt/files/entidades/10_1.png" alt="Diogo Domingues">
-                <span>Diogo Domingues</span>
-            </a>
-        </li>
-        <li>
-            <a href="https://uapt33090-my.sharepoint.com/personal/joaovarela_ua_pt/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fjoaovarela_ua_pt%2FDocuments%2FLEI%20-%20João%20Varela&ga=1" target="_blank" class="link-box">
-                <img src="https://www.sighabitat.pt/files/entidades/10_1.png" alt="João Varela">
-                <span>João Varela</span>
-            </a>
-        </li>
-        <li>
-            <a href="https://uapt33090-my.sharepoint.com/:f:/g/personal/raquelvinagre_ua_pt/Eq2-6xR3JlpNpJa-kwiBlYoBbj4LRfaqAyKQCliYo5Z2yw?e=Uto3Xs" target="_blank" class="link-box">
-                <img src="https://www.sighabitat.pt/files/entidades/10_1.png" alt="Raquel Vinagre">
-                <span>Raquel Vinagre</span>
-            </a>
-        </li>
-        <li>
-            <a href="https://uapt33090-my.sharepoint.com/:f:/g/personal/trs_coelho_ua_pt/EguFAabF9btHqoQSMXWKbpEBPJ0OyxqqTPi9IaQxifmMTQ?e=8D3FCi" target="_blank" class="link-box">
-                <img src="https://www.sighabitat.pt/files/entidades/10_1.png" alt="Tiago Coelho">
-                <span>Tiago Coelho</span>
-            </a>
-        </li>
-        <li>
-            <a href="https://uapt33090-my.sharepoint.com/:f:/g/personal/beatriz_francisco26_ua_pt/EhB0gPBXPp5PhJ6QDw3AEJ8BpiJVlBpa0zvvGBXh-nPGCw" target="_blank" class="link-box">
-                <img src="https://www.sighabitat.pt/files/entidades/10_1.png" alt="Beatriz Francisco">
-                <span>Beatriz Francisco</span>
-            </a>
-        </li>
-        <li>
-            <a href="https://uapt33090-my.sharepoint.com/:f:/g/personal/andreaoliveira_ua_pt/Ens1xNhUefpJnO1nq5rSsioB_qhVqd04HQRUMuQuXD1F5g?e=BtbSTW" target="_blank" class="link-box">
-                <img src="https://www.sighabitat.pt/files/entidades/10_1.png" alt="André Oliveira">
-                <span>André Oliveira</span>
-            </a>
-        </li>
-                <li>
-            <a href="https://uapt33090-my.sharepoint.com/personal/duarteccruz_ua_pt/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fduarteccruz%5Fua%5Fpt%2FDocuments%2FLEI%20%2D%20Duarte%20Cruz&ga=1" target="_blank" class="link-box">
-                <img src="https://www.sighabitat.pt/files/entidades/10_1.png" alt="Duarte Cruz">
-                <span>Duarte Cruz</span>
-            </a>
-        </li>
-    </ul>
 
+    <!-- 2º Ano Section -->
+    <div class="year-title">2º Ano</div>
+    <div class="semester-container">
+        <div class="semester">
+            <h3>1º Semestre</h3>
+            <a class="semester-button">
+                MPEI
+                <div class="description">
+                    <b>Métodos Probabilísticos para Engenharia Informática</b>
+                    <br>Uma cadeira que exige preparação cuidadosa, especialmente nas práticas e avaliações.
+                    <br>
+                    <br>Dicas para as práticas:
+                    <br>
+                    <br>► O professor Teixeira faz muitas perguntas individuais durante as práticas e anota quem não sabe responder. Cheguem a horas e estejam preparados.
+                    <br>
+                    <br>► Tenham os guiões em dia e saibam bem o que estão a fazer para as avaliações durante a aula.
+                    <br>
+                    <br>► O teste prático é extenso para o tempo disponível. É permitido consultar os guiões durante o teste.
+                    <br>
+                    <br>► O código deve ser escrito em Matlab, e devem colocar tanto o código quanto o resultado na folha.
+                    <br>
+                    <br>► Pratiquem com exames de anos anteriores para se familiarizarem com o tipo de questões.
+                    <br>
+                    <br>► Os guiões para avaliação em aula são feitos em grupos de dois.
+                    <br>
+                    <br>Dicas para os exames teóricos:
+                    <br>
+                    <br>► Há dois testes teóricos, e as melhores notas costumam ser obtidas no início, pois a matéria é mais fácil.
+                    <br>
+                    <br>► Aproveitem os primeiros momentos de avaliação para garantir boas notas.
+                    <br>
+                    <br>► Os testes teóricos não são muito difíceis, mas há muitos momentos de avaliação na cadeira (o que pode ser uma "red flag").
+                </div>
+            </a>
+
+            <a class="semester-button">
+                SO
+                <div class="description">
+                    <b>Sistemas Operativos</b>
+                    <br>Uma cadeira que se foca na realização de guiões e pode ser considerada mais simples que AED.
+                    <br>
+                    <br>Dicas para os projetos:
+                    <br>
+                    <br>► Os projetos tendem a ser similares de ano para ano, aproveitem recursos e exemplos anteriores.
+                    <br>
+                    <br>► O teste prático em C pode ser desafiador, e as notas frequentemente são baixas. Preparação e prática são essenciais.
+                    <br>
+                    <br>► É possível obter uma excelente nota nos projetos se dedicarem o tempo necessário.
+                    <br>
+                    <br>► Para o exame teórico, assistam aos vídeos do Lau e consultem o material disponível. O exame é acessível, mas é melhor começar a estudar ao longo do semestre devido à carga de trabalho dos projetos.
+                    <br>
+                    <br>► Não desvalorizem o relatório. Ele pode demorar a ser feito, mas é uma parte importante da avaliação.
+                    <br>
+                    <br>► Se possível, façam o relatório em pares. Dividam o trabalho para que um membro faça uma parte e o outro complete a restante.
+                    <br>
+                    <br>► Importante: comecem desde já a usar o GitHub.
+                </div>
+            </a>
+            <a class="semester-button">
+                SM
+                <div class="description">
+                    <b>Sistemas Multimédia</b>
+                    <br>Dicas para o exame prático:
+                    <br>
+                    <br>► É crucial ter os guiões bem resolvidos, pois podem ser utilizados durante os exames práticos.
+                    <br>
+                    <br>► Resolvam os testes do ano passado para se familiarizarem com o formato e tipo de questões.
+                    <br>
+                    <br>► Os exames práticos envolvem análise de sinais, imagens, sons, etc...
+                    <br>
+                    <br>► Uma vez que o último teste prático é a pares, no fim devem os dois corrigir o teste individualmente para conseguirem detetar algum erro mais facilmente.
+                    <br>
+                    <br>► O teste prático dura uma hora, mas o professor geralmente dá quase todo o tempo da aula.
+                    <br>
+                    <br>Dicas para o exame teórico:
+                    <br>
+                    <br>► Podem levar uma folha A4 frente e verso com cábulas (ex.: exemplos resolvidos, fórmulas).
+                    <br>
+                    <br>► Embora possam usar cábulas, é recomendável ter uma boa compreensão do material dos guiões práticos.
+                    <br>
+                    <br>► É um pouco mais difícil do que RS, mas ainda assim acessível.
+                </div>
+            </a>
+
+            <a class="semester-button">
+                AED
+                <div class="description">
+                    <b>Algoritmos e Estruturas de Dados</b>
+                    <br>Uma cadeira que envolve muitos projetos e algoritmos, importante manter uma boa organização desde o início.
+                    <br>
+                    <br>Dicas:
+                    <br>
+                    <br>► Importante: comecem desde já a usar o GitHub.
+                    <br>
+                    <br>► Levar sempre algo feito para as práticas para facilitar o progresso.
+                    <br>Dicas para os projetos:
+                    <br>
+                    <br>► Comecem logo a trabalhar nos projetos, não deixem para a última da hora.
+                    <br>
+                    <br>► Se tiverem dúvidas sobre os projetos, perguntem ao professor das práticas. Ele pode dar soluções ou dicas cruciais para os vossos algoritmos.
+                    <br>
+                    <br>► Consultem os GitHubs de estudantes de anos anteriores, há sempre recursos úteis (ex.: relatórios) e projetos semelhantes que podem cair no vosso ano.
+                    <br>
+                    <br>► Não subestimem a importância do relatório no projeto, ele deve estar bem explicado e completo com o raciocínio bem fundamentado.
+                    <br>
+                    <br>► Guardem os diferentes algoritmos que tentarem, mesmo os menos eficientes, para comparar e mostrar a evolução.
+                    <br>
+                    <br>Dicas Exame Teórico:
+                    <br>
+                    <br>► Os exames teóricos têm seguido o mesmo padrão ao longo dos anos.
+                    <br>
+                    <br>► O exame é dividido em três partes, e a melhor nota conta mais, a segunda melhor conta um pouco menos, e a pior nota conta menos.
+                </div>
+            </a>
+            <a class="semester-button">
+                RS
+                <div class="description">
+                    <b>Redes e Serviços</b>
+                    <br>Uma cadeira considerada mais fácil e com matéria interessante e importante.
+                    <br>
+                    <br>Dicas para o exame teórico:
+                    <br>
+                    <br>► As imagens dos testes são geralmente semelhantes às dos guiões, então revejam esses materiais.
+                    <br>
+                    <br>► O exame teórico pode ser demorado, e é importante dedicar tempo para entender as perguntas.
+                    <br>
+                    <br>► A primeira pergunta geralmente envolve uma tabela com custos, que é relativamente fácil de resolver.
+                    <br>
+                    <br>► Preparem-se para analisar uma rede em um papel A4 e responder a perguntas baseadas nessa análise.
+                    <br>
+                    <br>► Apareçam às aulas TP para vos facilitar o exame teórico e garantir uma boa nota.
+                    <br>
+                    <br>► As últimas perguntas do exame teórico podem cobrir tópicos que não foram abordados nas aulas práticas.
+                    <br>
+                    <br>► Os últimos (8) valores de desenvolvimento são mais desafiadores, então preparem-se com antecedência.
+                </div>
+            </a>
+        </div>
+        <div class="semester">
+            <h3>2º Semestre</h3>
+            <a class="semester-button">
+                Button 1
+                <div class="description">Descrição do botão 1.</div>
+            </a>
+            <a class="semester-button">
+                Button 2
+                <div class="description">Descrição do botão 2.</div>
+            </a>
+            <a class="semester-button">
+                Button 3
+                <div class="description">Descrição do botão 3.</div>
+            </a>
+            <a class="semester-button">
+                Button 4
+                <div class="description">Descrição do botão 4.</div>
+            </a>
+            <a class="semester-button">
+                Button 5
+                <div class="description">Descrição do botão 5.</div>
+            </a>
+        </div>
+    </div>
+
+    <!-- 3º Ano Section -->
+    <div class="year-title">3º Ano</div>
+    <div class="semester-container">
+        <div class="semester">
+            <h3>1º Semestre</h3>
+            <a class="semester-button">
+                Button 1
+                <div class="description">Descrição do botão 1.</div>
+            </a>
+            <a class="semester-button">
+                Button 2
+                <div class="description">Descrição do botão 2.</div>
+            </a>
+            <a class="semester-button">
+                Button 3
+                <div class="description">Descrição do botão 3.</div>
+            </a>
+            <a class="semester-button">
+                Button 4
+                <div class="description">Descrição do botão 4.</div>
+            </a>
+            <a class="semester-button">
+                Button 5
+                <div class="description">Descrição do botão 5.</div>
+            </a>
+        </div>
+        <div class="semester">
+            <h3>2º Semestre</h3>
+            <a class="semester-button">
+                Button 1
+                <div class="description">Descrição do botão 1.</div>
+            </a>
+            <a class="semester-button">
+                Button 2
+                <div class="description">Descrição do botão 2.</div>
+            </a>
+            <a class="semester-button">
+                Button 3
+                <div class="description">Descrição do botão 3.</div>
+            </a>
+            <a class="semester-button">
+                Button 4
+                <div class="description">Descrição do botão 4.</div>
+            </a>
+            <a class="semester-button">
+                Button 5
+                <div class="description">Descrição do botão 5.</div>
+            </a>
+        </div>
+    </div>
+    <!-- Opinions Section -->
+    <div class="year-title">Opiniões sobre cadeiras opcionais</div>
+        <a class="semester-button">
+            Documento - Agosto 2023
+            <div class="description">https://drive.google.com/file/d/1MuE3IwGMsYyLs6ealbWoTN20XpXAZhWO/view</div>
+        </a>
+        <a class="semester-button">
+            Documento - Julho 2021
+            <div class="description">https://docs.google.com/document/d/1vKQHREcheRr44do03HRSaDXILjvog4iEt54dT_ctLv4/edit?usp=sharing</div>
+        </a>
     <script>
-        const hamburger = document.querySelector('.hamburger');
+        // Handle mobile navbar toggle
         const navbar = document.querySelector('.navbar');
+        const hamburger = document.querySelector('.hamburger');
 
         hamburger.addEventListener('click', () => {
             navbar.classList.toggle('active');
         });
 
-        function filterLinks() {
-            const input = document.getElementById('search').value.toLowerCase();
-            const links = document.querySelectorAll('#linkList li');
+        // Handle button click to expand description
+        const buttons = document.querySelectorAll('.semester-button');
 
-            links.forEach(link => {
-                const text = link.textContent.toLowerCase();
-                link.style.display = text.includes(input) ? '' : 'none';
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                button.classList.toggle('active');
             });
-        }
+        });
     </script>
 </body>
 </html>
