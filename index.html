@@ -27,6 +27,11 @@
             height: auto;
         }
 
+        .navbar-links {
+            display: flex;
+            gap: 10px;
+        }
+
         .navbar a {
             color: white;
             text-decoration: none;
@@ -41,6 +46,46 @@
             background-color: #555; /* Change color on hover */
         }
 
+        /* Mobile nav styles */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+        }
+
+        .navbar-links-mobile {
+            display: none;
+            flex-direction: column;
+            background-color: #333;
+        }
+
+        .navbar-links-mobile a {
+            padding: 15px;
+            text-align: center;
+        }
+
+        /* Show mobile nav when active */
+        .navbar.active .navbar-links-mobile {
+            display: flex;
+        }
+
+        @media (max-width: 768px) {
+            .navbar-links {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+        }
+
         h1 {
             text-align: center;
             color: #333;
@@ -48,22 +93,20 @@
             white-space: nowrap;
             overflow: hidden;
             border-right: 2px solid;
-            width: 15ch; /* "Drives NEI" has 10 characters */
+            width: 15ch;
             margin: 0 auto;
             animation: typing 2s steps(10) forwards, blink 1s step-end infinite;
         }
 
-        /* Typing animation */
         @keyframes typing {
             from {
                 width: 0;
             }
             to {
-                width: 9ch; /* Adjust for the length of the title */
+                width: 9ch;
             }
         }
 
-        /* Blinking cursor animation */
         @keyframes blink {
             from, to {
                 border-color: transparent;
@@ -135,7 +178,17 @@
     <!-- Navbar starts here -->
     <nav class="navbar">
         <img src="https://nei.web.ua.pt/assets/logo-1f761f76.png" alt="Logo"> <!-- Replace with actual icon link -->
-        <div>
+        <div class="navbar-links">
+            <a href="https://drivesnei.github.io/Drives-NEI">Drives</a>
+            <a href="https://drivesnei.github.io/Drives-NEI/dicas">Dicas</a>
+            <a href="https://nei.web.ua.pt" target="_blank">Site do NEI</a>
+        </div>
+        <div class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="navbar-links-mobile">
             <a href="https://drivesnei.github.io/Drives-NEI">Drives</a>
             <a href="https://drivesnei.github.io/Drives-NEI/dicas">Dicas</a>
             <a href="https://nei.web.ua.pt" target="_blank">Site do NEI</a>
@@ -199,21 +252,23 @@
             </a>
         </li>
     </ul>
+
     <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navbar = document.querySelector('.navbar');
+
+        hamburger.addEventListener('click', () => {
+            navbar.classList.toggle('active');
+        });
+
         function filterLinks() {
-            const searchInput = removeAccents(document.getElementById('search').value.toLowerCase());
+            const input = document.getElementById('search').value.toLowerCase();
             const links = document.querySelectorAll('#linkList li');
+
             links.forEach(link => {
-                const nameText = removeAccents(link.querySelector('.link-box span').innerText.toLowerCase());
-                if (nameText.includes(searchInput)) {
-                    link.style.display = ''; // Show the link
-                } else {
-                    link.style.display = 'none'; // Hide the link
-                }
+                const text = link.textContent.toLowerCase();
+                link.style.display = text.includes(input) ? '' : 'none';
             });
-        }
-        function removeAccents(text) {
-            return text.normalize("NFD").replace(/[\u0300-\u036f]/g, ""); // Remove accents
         }
     </script>
 </body>
