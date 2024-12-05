@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8QKCHWZD4H"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-8QKCHWZD4H');
+    </script>
+    <title>Drives NEI</title>
+    <!-- Import Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
+    <style>
+        /* General body styling */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f6f6f6, #e3e3e3);
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Centered title for each year */
+        .year-title {
+            font-weight: bold;
+            text-align: center;
+            font-size: 2em;
+            margin: 30px 0;
+            color: #333;
+        }
+
+        /* Container for each year's semesters, using flexbox */
+        .semester-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            padding: 25px;
+        }
+
+        /* Semester box styling */
+        .semester {
+            width: 48%;
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 768px) {
+            .semester {
+                width: 100%;
+            }
+        }
+
+        /* Navbar styling */
+        .navbar {
+            position: relative;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .navbar img {
+            width: 50px;
+            height: auto;
+        }
+
+        .navbar-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            margin: 0 5px;
+            border-radius: 5px;
+            background-color: #444;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            background-color: #555;
+        }
+
+        /* Mobile nav styles */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+        }
+
+        .navbar-links-mobile {
+            display: none;
+            flex-direction: column;
+            background-color: #333;
+        }
+
+        .navbar-links-mobile a {
+            padding: 15px;
+            text-align: center;
+        }
+
+        /* Show mobile nav when active */
+        .navbar.active .navbar-links-mobile {
+            display: flex;
+        }
+
+        @media (max-width: 768px) {
+            .navbar-links {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 2.5em;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 2px solid;
+            width: 5ch;
+            margin: 0 auto;
+            animation: typing 1s steps(5) forwards, blink 1s step-end infinite;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 6ch;
+            }
+        }
+
+        @keyframes blink {
+            from, to {
+                border-color: transparent;
+            }
+            50% {
+                border-color: black;
+            }
+        }
+
+        .last-modification {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        h3 {
+            text-align: center;
+            font-size: 1.5em;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        /* Button styling */
+        .semester-button {
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: #d3d3d3;
+            color: #333;
+            padding: 15px;
+            text-align: center;
+            border-radius: 10px;
+            margin: 10px 0;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        /* Hidden description */
+        .semester-button .description {
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: opacity 0.3s ease, max-height 0.3s ease;
+            padding: 10px;
+            color: #555;
+            font-size: 0.9em;
+        }
+
+        /* Title for the subject, always stays on top */
+        .semester-button b {
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        /* Active class for expanded buttons */
+        .semester-button.active .description {
+            opacity: 1;
+            max-height: 1000px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar starts here -->
+    <nav class="navbar">
+        <a href="https://nei.web.ua.pt" style="background: transparent; padding: 0px;">
+            <img src="https://nei.web.ua.pt/assets/logo-1f761f76.png" alt="Logo" style="width: 40%; height: 40%; object-fit: contain;">
+        </a> <!-- Replace with actual icon link -->
+        <div class="navbar-links">
+            <a href="https://drivesnei.github.io/Drives-NEI">Drives</a>
+            <a href="https://drivesnei.github.io/Drives-NEI/dicas">Dicas</a>
+            <a href="https://nei.web.ua.pt" target="_blank">Site do NEI</a>
+        </div>
+        <div class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="navbar-links-mobile">
+            <a href="https://drivesnei.github.io/Drives-NEI">Drives</a>
+            <a href="https://drivesnei.github.io/Drives-NEI/videos">Videos</a>
+            <a href="https://drivesnei.github.io/Drives-NEI/dicas">Dicas</a>
+            <a href="https://nei.web.ua.pt" target="_blank">Site do NEI</a>
+        </div>
+    </nav>
+    <!-- Navbar ends here -->
+
+    <h1>Vídeos</h1>
+    <div class="last-modification">Última modificação: 05/12/2024</div>
+
+    <script>
+        // Handle mobile navbar toggle
+        const navbar = document.querySelector('.navbar');
+        const hamburger = document.querySelector('.hamburger');
+
+        hamburger.addEventListener('click', () => {
+            navbar.classList.toggle('active');
+        });
+
+        // Handle button click to expand description
+        const buttons = document.querySelectorAll('.semester-button');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                button.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
