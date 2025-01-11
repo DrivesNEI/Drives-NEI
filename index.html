@@ -203,6 +203,45 @@
             transform: scale(1.1);
             transition: transform 0.3s ease-in-out;
         }
+        .heart-icon {
+            cursor: pointer;
+            font-size: 30px;
+            color: #ada49b; /* Default color */
+            margin-left: 10px;
+            transition: color 0.3s ease-in-out;
+        }
+        
+        .heart-icon:hover {
+            color: #ff3c3c; /* Hover color */
+        }
+        
+        .heart-icon.favorited {
+            color: #ff3c3c; /* Clicked (favorited) color */
+        }
+        /* Pump animation */
+        .heart-icon.animate {
+            animation: pump 0.3s ease-in-out;
+        }
+        @keyframes pump {
+            0% {
+                transform: scale(1);
+                text-shadow: 0 0 0 #ff3c3c;
+            }
+            50% {
+                transform: scale(1.3);
+                text-shadow: 0 5px 15px #ff3c3c; /* Color spread */
+            }
+            100% {
+                transform: scale(1);
+                text-shadow: 0 0 0 #ff3c3c;
+            }
+        }
+        .link-box {
+            flex-grow: 1; /* Allow the link box to take up available space */
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
 
     </style>
 </head>
@@ -241,70 +280,103 @@
     <p class="disclaimer">* É possível que te depares com algumas drives sem acesso, se isso acontecer não hesites em pedir permissão!</p>
     <ul id="linkList">
         <li>
+            <div style="display: flex; align-items: center; justify-content: space-between;">
             <a href="https://uapt33090-my.sharepoint.com/:f:/g/personal/carolinaprata_ua_pt/EscBdZu0F7RJk1GGXPS3ANcBw26iyqMg45TmagLxOCx23g?e=pjB2Xu" target="_blank" class="link-box">
                 <img src="https://www.sighabitat.pt/files/entidades/10_1.png" alt="Carolina Prata">
                 <span>Carolina Prata</span>
             </a>
+            <span class="heart-icon" data-id="carolina-prata">❤</span>
+        </div>
         </li>
         <li>
-            <a href="https://uapt33090-my.sharepoint.com/personal/diogodomingues04_ua_pt/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fdiogodomingues04_ua_pt%2FDocuments%2FUA&ga=1" target="_blank" class="link-box">
-                <img src="https://www.sighabitat.pt/files/entidades/10_1.png" alt="Diogo Domingues">
-                <span>Diogo Domingues</span>
-            </a>
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+                <a href="https://uapt33090-my.sharepoint.com/personal/diogodomingues04_ua_pt/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fdiogodomingues04_ua_pt%2FDocuments%2FUA&ga=1" target="_blank" class="link-box">
+                    <img src="https://www.sighabitat.pt/files/entidades/10_1.png" alt="Diogo Domingues">
+                    <span>Diogo Domingues</span>
+                </a>
+                <span class="heart-icon" data-id="diogo-domingues">❤</span>
+            </div>
         </li>
         <li>
-            <a href="https://uapt33090-my.sharepoint.com/:f:/g/personal/joaovarela_ua_pt/EnuVHswHTf5BiblHIUH0Cx8BwMutwD3tnbszh1KSUVw6oQ?e=tFFOPY" target="_blank" class="link-box">
-                <img src="https://www.sighabitat.pt/files/entidades/10_1.png" alt="João Varela">
-                <span>João Varela</span>
-            </a>
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+                <a href="https://uapt33090-my.sharepoint.com/:f:/g/personal/joaovarela_ua_pt/EnuVHswHTf5BiblHIUH0Cx8BwMutwD3tnbszh1KSUVw6oQ?e=tFFOPY" target="_blank" class="link-box">
+                    <img src="https://www.sighabitat.pt/files/entidades/10_1.png" alt="João Varela">
+                    <span>João Varela</span>
+                </a>
+                <span class="heart-icon" data-id="joao-varela">❤</span>
+            </div>
         </li>
         <li>
-            <a href="https://uapt33090-my.sharepoint.com/:f:/g/personal/raquelvinagre_ua_pt/Eq2-6xR3JlpNpJa-kwiBlYoBbj4LRfaqAyKQCliYo5Z2yw?e=hfMYdu" target="_blank" class="link-box">
-                <img src="https://www.sighabitat.pt/files/entidades/10_1.png" alt="Raquel Vinagre">
-                <span>Raquel Vinagre</span>
-            </a>
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+                <a href="https://uapt33090-my.sharepoint.com/:f:/g/personal/raquelvinagre_ua_pt/Eq2-6xR3JlpNpJa-kwiBlYoBbj4LRfaqAyKQCliYo5Z2yw?e=hfMYdu" target="_blank" class="link-box">
+                    <img src="https://www.sighabitat.pt/files/entidades/10_1.png" alt="Raquel Vinagre">
+                    <span>Raquel Vinagre</span>
+                </a>
+                <span class="heart-icon" data-id="raquel-vinagre">❤</span>
+            </div>
         </li>
         <li>
-            <a href="https://uapt33090-my.sharepoint.com/:f:/g/personal/trs_coelho_ua_pt/EguFAabF9btHqoQSMXWKbpEBPJ0OyxqqTPi9IaQxifmMTQ?e=8D3FCi" target="_blank" class="link-box">
-                <img src="https://www.sighabitat.pt/files/entidades/10_1.png" alt="Tiago Coelho">
-                <span>Tiago Coelho</span>
-            </a>
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+                <a href="https://uapt33090-my.sharepoint.com/:f:/g/personal/trs_coelho_ua_pt/EguFAabF9btHqoQSMXWKbpEBPJ0OyxqqTPi9IaQxifmMTQ?e=8D3FCi" target="_blank" class="link-box">
+                    <img src="https://www.sighabitat.pt/files/entidades/10_1.png" alt="Tiago Coelho">
+                    <span>Tiago Coelho</span>
+                </a>
+                <span class="heart-icon" data-id="tiago-coelho">❤</span>
+            </div>
         </li>
         <li>
-            <a href="https://uapt33090-my.sharepoint.com/:f:/g/personal/beatriz_francisco26_ua_pt/EhB0gPBXPp5PhJ6QDw3AEJ8BpiJVlBpa0zvvGBXh-nPGCw" target="_blank" class="link-box">
-                <img src="https://www.sighabitat.pt/files/entidades/10_1.png" alt="Beatriz Francisco">
-                <span>Beatriz Francisco</span>
-            </a>
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+                <a href="https://uapt33090-my.sharepoint.com/:f:/g/personal/beatriz_francisco26_ua_pt/EhB0gPBXPp5PhJ6QDw3AEJ8BpiJVlBpa0zvvGBXh-nPGCw" target="_blank" class="link-box">
+                    <img src="https://www.sighabitat.pt/files/entidades/10_1.png" alt="Beatriz Francisco">
+                    <span>Beatriz Francisco</span>
+                </a>
+                <span class="heart-icon" data-id="beatriz-francisco">❤</span>
+            </div>
         </li>
         <li>
-            <a href="https://uapt33090-my.sharepoint.com/:f:/g/personal/andreaoliveira_ua_pt/Ens1xNhUefpJnO1nq5rSsioB_qhVqd04HQRUMuQuXD1F5g?e=BtbSTW" target="_blank" class="link-box">
-                <img src="https://www.sighabitat.pt/files/entidades/10_1.png" alt="André Oliveira">
-                <span>André Oliveira</span>
-            </a>
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+                <a href="https://uapt33090-my.sharepoint.com/:f:/g/personal/andreaoliveira_ua_pt/Ens1xNhUefpJnO1nq5rSsioB_qhVqd04HQRUMuQuXD1F5g?e=BtbSTW" target="_blank" class="link-box">
+                    <img src="https://www.sighabitat.pt/files/entidades/10_1.png" alt="André Oliveira">
+                    <span>André Oliveira</span>
+                </a>
+                <span class="heart-icon" data-id="andre-oliveira">❤</span>
+            </div>
         </li>
         <li>
-            <a href="https://uapt33090-my.sharepoint.com/:f:/g/personal/duarteccruz_ua_pt/Ek5MG0x4B4lEoP0ylmYWOXMBSwcFLuKN2J1H30guus2Keg?e=DTzaMF" target="_blank" class="link-box">
-                <img src="https://www.sighabitat.pt/files/entidades/10_1.png" alt="Duarte Cruz">
-                <span>Duarte Cruz</span>
-            </a>
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+                <a href="https://uapt33090-my.sharepoint.com/:f:/g/personal/duarteccruz_ua_pt/Ek5MG0x4B4lEoP0ylmYWOXMBSwcFLuKN2J1H30guus2Keg?e=DTzaMF" target="_blank" class="link-box">
+                    <img src="https://www.sighabitat.pt/files/entidades/10_1.png" alt="Duarte Cruz">
+                    <span>Duarte Cruz</span>
+                </a>
+                <span class="heart-icon" data-id="duarte-cruz">❤</span>
+            </div>
         </li>
         <li>
-            <a href="https://uapt33090-my.sharepoint.com/personal/miguelamneto_ua_pt/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fmiguelamneto_ua_pt%2FDocuments&ga=1" target="_blank" class="link-box">
-                <img src="https://www.sighabitat.pt/files/entidades/10_1.png" alt="Miguel Neto">
-                <span>Miguel Neto</span>
-            </a>
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+                <a href="https://uapt33090-my.sharepoint.com/personal/miguelamneto_ua_pt/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fmiguelamneto_ua_pt%2FDocuments&ga=1" target="_blank" class="link-box">
+                    <img src="https://www.sighabitat.pt/files/entidades/10_1.png" alt="Miguel Neto">
+                    <span>Miguel Neto</span>
+                </a>
+                <span class="heart-icon" data-id="miguel-neto">❤</span>
+            </div>
         </li>
         <li>
-            <a href="https://anasl-wrk.github.io/Anas-Leaf/university.html" target="_blank" class="link-box">
-                <img src="aleaf.png" alt="Ana Loureiro">
-                <span>Ana Loureiro</span>
-            </a>
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+                <a href="https://anasl-wrk.github.io/Anas-Leaf/university.html" target="_blank" class="link-box">
+                    <img src="aleaf.png" alt="Ana Loureiro">
+                    <span>Ana Loureiro</span>
+                </a>
+                <span class="heart-icon" data-id="ana-loureiro">❤</span>
+            </div>
         </li>
         <li>
-            <a href="https://uapt33090-my.sharepoint.com/:f:/g/personal/tiagocgomes_ua_pt/Ei3w1PKnZE5FoJi63_9s4H4BzybqAMw94Ck3lQVBQlPnKw" target="_blank" class="link-box">
-                <img src="https://www.sighabitat.pt/files/entidades/10_1.png" alt="Tiago Caridade">
-                <span>Tiago Caridade</span>
-            </a>
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+                <a href="https://uapt33090-my.sharepoint.com/:f:/g/personal/tiagocgomes_ua_pt/Ei3w1PKnZE5FoJi63_9s4H4BzybqAMw94Ck3lQVBQlPnKw" target="_blank" class="link-box">
+                    <img src="https://www.sighabitat.pt/files/entidades/10_1.png" alt="Tiago Caridade">
+                    <span>Tiago Caridade</span>
+                </a>
+                <span class="heart-icon" data-id="tiago-caridade">❤</span>
+            </div>
         </li>
     </ul>
     <div style="text-align: center; margin: 40px 0;">
@@ -332,6 +404,68 @@ Criámos um espaço onde todos podem contribuir com resumos, exercícios, projet
                 link.style.display = text.includes(input) ? '' : 'none';
             });
         }
+        
+        // Lógica dos favorites
+        document.addEventListener('DOMContentLoaded', () => {
+        const hearts = document.querySelectorAll('.heart-icon');
+        const linkList = document.getElementById('linkList');
+    
+        // Load favorites from localStorage
+        const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    
+        // Mark previously favorited drives
+        hearts.forEach(heart => {
+            const id = heart.dataset.id;
+            if (favorites.includes(id)) {
+                heart.classList.add('favorited');
+            }
+        });
+    
+        // Handle heart icon click
+        hearts.forEach(heart => {
+            heart.addEventListener('click', () => {
+                const id = heart.dataset.id;
+    
+                // Toggle favorite state
+                if (favorites.includes(id)) {
+                    favorites.splice(favorites.indexOf(id), 1);
+                    heart.classList.remove('favorited');
+                } else {
+                    favorites.push(id);
+                    heart.classList.add('favorited');
+                }
+    
+                // Save updated favorites to localStorage
+                localStorage.setItem('favorites', JSON.stringify(favorites));
+    
+                // Trigger pump animation
+                heart.classList.add('animate');
+                setTimeout(() => heart.classList.remove('animate'), 300); // Remove animation class after it completes
+    
+                // Reorder links - Ordena os links após adicionar um favorito
+                //reorderLinks();
+            });
+        });
+    
+        function reorderLinks() {
+            const links = Array.from(linkList.children);
+            links.sort((a, b) => {
+                const aId = a.querySelector('.heart-icon').dataset.id;
+                const bId = b.querySelector('.heart-icon').dataset.id;
+    
+                const aFavorited = favorites.includes(aId);
+                const bFavorited = favorites.includes(bId);
+    
+                return bFavorited - aFavorited; // Sort by favorited status
+            });
+    
+            // Append sorted links back to the list
+            links.forEach(link => linkList.appendChild(link));
+        }
+    
+        // Initial reorder on page load
+        reorderLinks();
+    });
     </script>
 </body>
 </html>
