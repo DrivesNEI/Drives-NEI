@@ -249,6 +249,18 @@
             text-decoration: none;
         }
 
+        .popup-gif {
+            position: fixed;
+            bottom: -150px; /* Initially hidden */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            transition: bottom 0.3s ease-in-out;
+        }
+        
+        .show {
+            bottom: 20px; /* Moves the GIF into view */
+        }
     </style>
 </head>
 <body>
@@ -256,7 +268,7 @@
     <!-- Navbar starts here -->
     <nav class="navbar">
         <a href="https://nei.web.ua.pt" style="background: transparent; padding: 0px;">
-            <img src="ChillGuy.webp" alt="Logo" style="width: 15%; height: 15%; object-fit: contain;">
+            <img src="ChillGuy.webp" alt="Logo" style="width: 15%; height: 15%; object-fit: contain;" class="trigger-image">
         </a> <!-- Replace with actual icon link -->
         <div class="navbar-links">
             <a href="https://drivesnei.github.io/Drives-NEI">Drives</a>
@@ -279,7 +291,7 @@
     <!-- Navbar ends here -->
 
     <h1>Drives NEI</h1>
-    <div class="last-modification">Última modificação: 24/02/2024</div>
+    <div class="last-modification">Última modificação: 25/02/2025</div>
     <div class="search-container">
         <input type="text" id="search" placeholder="Procura uma drive..." oninput="filterLinks()">
     </div>
@@ -410,7 +422,7 @@
         <p style="font-size:13px; margin-top: 30px; color: #666;">Sabias que a tua partilha pode fazer um grande impacto na vida dos teus colegas de curso?<br>
 Criámos um espaço onde todos podem contribuir com resumos, exercícios, projetos e muito mais!<br>Ajuda-nos a tornar este site melhor!</p>
     </div>
-
+    <img src="popup.gif" alt="Popup GIF" class="popup-gif">
     <script>
         const hamburger = document.querySelector('.hamburger');
         const navbar = document.querySelector('.navbar');
@@ -490,6 +502,21 @@ Criámos um espaço onde todos podem contribuir com resumos, exercícios, projet
         // Initial reorder on page load
         reorderLinks();
     });
+        // Pop-Up GIF
+        document.addEventListener("DOMContentLoaded", () => {
+            const triggerImg = document.querySelector(".trigger-image");
+            const gif = document.querySelector(".popup-gif");
+        
+            triggerImg.addEventListener("mouseenter", () => {
+                gif.classList.add("show");
+            });
+        
+            triggerImg.addEventListener("mouseleave", () => {
+                gif.classList.remove("show");
+            });
+        });
+
+
     </script>
 </body>
 </html>
