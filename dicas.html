@@ -231,13 +231,26 @@
             opacity: 1;
             max-height: 1000px;
         }
+
+        .popup-gif {
+            position: fixed;
+            bottom: -150px; /* Initially hidden */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            transition: bottom 0.3s ease-in-out;
+        }
+        
+        .show {
+            bottom: 20px; /* Moves the GIF into view */
+        }
     </style>
 </head>
 <body>
     <!-- Navbar starts here -->
     <nav class="navbar">
         <a href="https://nei.web.ua.pt" style="background: transparent; padding: 0px;">
-            <img src="ChillGuy.webp" alt="Logo" style="width: 15%; height: 15%; object-fit: contain;">
+            <img src="ChillGuy.webp" alt="Logo" style="width: 15%; height: 15%; object-fit: contain;" class="trigger-image">
         </a> <!-- Replace with actual icon link -->
         <div class="navbar-links">
             <a href="https://drivesnei.github.io/Drives-NEI">Drives</a>
@@ -689,6 +702,7 @@
             Documento - Julho 2021
             <div class="description">https://docs.google.com/document/d/1vKQHREcheRr44do03HRSaDXILjvog4iEt54dT_ctLv4/edit?usp=sharing</div>
         </a>
+    <img src="popup.gif" alt="Popup GIF" class="popup-gif">
     <script>
         // Handle mobile navbar toggle
         const navbar = document.querySelector('.navbar');
@@ -704,6 +718,20 @@
         buttons.forEach(button => {
             button.addEventListener('click', () => {
                 button.classList.toggle('active');
+            });
+        });
+
+        // Pop-Up GIF
+        document.addEventListener("DOMContentLoaded", () => {
+            const triggerImg = document.querySelector(".trigger-image");
+            const gif = document.querySelector(".popup-gif");
+        
+            triggerImg.addEventListener("mouseenter", () => {
+                gif.classList.add("show");
+            });
+        
+            triggerImg.addEventListener("mouseleave", () => {
+                gif.classList.remove("show");
             });
         });
     </script>
