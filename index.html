@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -119,6 +120,11 @@
             width: 15ch;
             margin: 0 auto;
             animation: typing 2s steps(10) forwards, blink 1s step-end infinite;
+        }
+        
+        h2 {
+            text-align: center;
+            color: #333;
         }
 
         @keyframes typing {
@@ -296,6 +302,7 @@
         <input type="text" id="search" placeholder="Procura uma drive..." oninput="filterLinks()">
     </div>
     <p class="disclaimer">* É possível que te depares com algumas drives sem acesso, se isso acontecer não hesites em pedir permissão!</p>
+    <h2>Licenciatura</h2>
     <ul id="linkList">
         <li>
             <div style="display: flex; align-items: center; justify-content: space-between;">
@@ -357,7 +364,7 @@
                     <img src="https://www.sighabitat.pt/files/entidades/10_1.png" alt="André Oliveira">
                     <span>André Oliveira</span>
                 </a>
-                <span class="heart-icon" data-id="andre-oliveira">❤</span>
+                <span class="heart-icon" data-id="andre-oliveira-licenciatura">❤</span>
             </div>
         </li>
         <li>
@@ -433,12 +440,33 @@
             </div>
         </li>
         <li>
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+                <a href="https://github.com/ThiagoAVicente/UA" target="_blank" class="link-box">
+                    <img src="GitHub-logo.png" alt="Thiago Vicente">
+                    <span>Thiago Vicente</span>
+                </a>
+                <span class="heart-icon" data-id="thiago-vicente">❤</span>
+            </div>
+        </li>
+        <li>
              <div style="display: flex; align-items: center; justify-content: space-between;">
                  <a href="https://1drv.ms/f/c/2ef832a3ae65c8bc/QrzIZa6jMvgggC5qAAAAAAAAxpwGrdcdXBWaig" target="_blank" class="link-box">
                      <img src="https://www.sighabitat.pt/files/entidades/10_1.png" alt="Drive">
                      <span>Drive</span>
                  </a>
                  <span class="heart-icon" data-id="drive">❤</span>
+             </div>
+         </li>
+    </ul>
+    <h2>Mestrado</h2>
+    <ul>
+        <li>
+             <div style="display: flex; align-items: center; justify-content: space-between;">
+                 <a href="https://uapt33090-my.sharepoint.com/:f:/g/personal/andreaoliveira_ua_pt/Ev1hj8JicRBIone7llM-GHMB3Cp99uWE-dKL-qBsQvZerA?e=Qi4Lfx" target="_blank" class="link-box">
+                     <img src="https://www.sighabitat.pt/files/entidades/10_1.png" alt="André Oliveira">
+                     <span>André Oliveira</span>
+                 </a>
+                 <span class="heart-icon" data-id="andre-oliveira-mestrado">❤</span>
              </div>
          </li>
     </ul>
